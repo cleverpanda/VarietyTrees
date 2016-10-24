@@ -1,0 +1,7 @@
+{
+    "parent": "block/column_side",
+    "textures": {
+        "end": "varietytrees:blocks/log_apple_top",
+        "side": "varietytrees:blocks/log_apple"
+    }
+}

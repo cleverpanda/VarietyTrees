@@ -1,0 +1,16 @@
+[
+{
+  "modid": "varietytrees",
+  "name": "Variety Trees",
+  "description": "Get some lignum in your life!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Cleverpanda714"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "varietytrees:blocks/log_fir_top",
+        "side": "varietytrees:blocks/log_fir"
+    }
+}

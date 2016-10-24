@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom,variant=default": { "model": "varietytrees:half_slab_yew" },
+        "half=top,variant=default": { "model": "varietytrees:upper_slab_yew" }
+    }
+}

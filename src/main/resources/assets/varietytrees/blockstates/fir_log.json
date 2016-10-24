@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "varietytrees:fir_log" },
+        "axis=z":   { "model": "varietytrees:fir_log", "x": 90 },
+        "axis=x":   { "model": "varietytrees:fir_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "varietytrees:fir_bark" }
+    }
+}

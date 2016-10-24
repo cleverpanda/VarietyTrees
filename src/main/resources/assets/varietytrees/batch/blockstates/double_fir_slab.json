@@ -1,0 +1,9 @@
+{
+    "variants": {
+
+        "normal": { "model": "varietytrees:fir_planks" },
+	"variant=default": { "model": "varietytrees:fir_planks" }
+
+    }
+
+}

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "varietytrees:pine_log" },
+        "axis=z":   { "model": "varietytrees:pine_log", "x": 90 },
+        "axis=x":   { "model": "varietytrees:pine_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "varietytrees:pine_bark" }
+    }
+}

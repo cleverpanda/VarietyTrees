@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "varietytrees:yew_log" },
+        "axis=z":   { "model": "varietytrees:yew_log", "x": 90 },
+        "axis=x":   { "model": "varietytrees:yew_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "varietytrees:yew_bark" }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_top_rh",
+    "textures": {
+        "bottom": "varietytrees:blocks/door_apple_lower",
+        "top": "varietytrees:blocks/door_apple_upper"
+    }
+}

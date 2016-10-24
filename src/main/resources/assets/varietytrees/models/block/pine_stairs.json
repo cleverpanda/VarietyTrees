@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "varietytrees:blocks/planks_pine",
+        "top": "varietytrees:blocks/planks_pine",
+        "side": "varietytrees:blocks/planks_pine"
+    }
+}

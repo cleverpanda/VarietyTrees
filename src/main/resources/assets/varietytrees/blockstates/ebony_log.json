@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "varietytrees:ebony_log" },
+        "axis=z":   { "model": "varietytrees:ebony_log", "x": 90 },
+        "axis=x":   { "model": "varietytrees:ebony_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "varietytrees:ebony_bark" }
+    }
+}
