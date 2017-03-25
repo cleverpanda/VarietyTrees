@@ -38,6 +38,12 @@ public class ConfigurationHandler {
 	public static int goldenDropFortuneDecrement;
 	public static int goldenDropMinChance;
 	
+	public static boolean removeAppleDrops;
+	public static int retrieveSaplingsMode;
+	
+	public static String[] mega;
+	public static String dL = "";
+	
 	
 	
 	
@@ -45,12 +51,7 @@ public class ConfigurationHandler {
 		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 
 		config.load();
-		//nestRarity = config.getInt("NEST_DROP_RARITY", config.CATEGORY_GENERAL, 24, 0, 1000, "");
-		//decayDropModifier = config.getFloat("NEST_DECAY_DROP_MULTIPLIER", config.CATEGORY_GENERAL, 1.25F, 0, 1000, "This makes nests more (or less ) rare from decaying leaves. Leave at 1 for no change.");
-		//allowDecayDrops = config.getBoolean("ALLOW_DECAY_DROPS", config.CATEGORY_GENERAL, true, "Allows to enable/disable nests dropping from decaying leaves");
-		//RARITY_MULTIPLIER = config.getInt("RARITY_MULTIPLIER", config.CATEGORY_GENERAL, 1, 0, 1000, "Multiplies rarity of all drops");
-		config.addCustomCategoryComment("Crafting", "Tweaks for crafting and smelting recipes");
-			numStairs = config.getInt("NumStairsCrafting", "Crafting", 4, 1, 8, "");
+
 		config.addCustomCategoryComment("Drops", "Tweaks for leaf drops\n Drop chances are 1/n. Fortune decrements are how much it changes for each level of fortune.");
 			oakChance = config.getInt("oakSeedChance", "Drops", 30, 1, 32767, "");
 			birchChance = config.getInt("birchSeedChance", "Drops", 30, 1, 32767, "");
@@ -65,16 +66,29 @@ public class ConfigurationHandler {
 			yewChance = config.getInt("yewSeedChance", "Drops", 24, 1, 32767, "");
 			ebonyChance = config.getInt("ebonySeedChance", "Drops", 27, 1, 32767, "");
 			firChance = config.getInt("firSeedChance", "Drops", 34, 1, 32767, "");
-			goldenDropChance = config.getInt("goldenAppleChance", "Drops", 1200, 1, 32767, "");
+			goldenDropChance = config.getInt("goldenAppleChance", "Drops", 1600, 1, 32767, "");
 			goldenDropFortuneDecrement = config.getInt("goldenAppleFortuneDecrement", "Drops", 60, 1, 32767, "Must be less than the chance");
-			goldenDropMinChance = config.getInt("goldenAppleMinChance", "Drops", 200, 1, 32767, "Must be less than the chance");
+			goldenDropMinChance = config.getInt("goldenAppleMinChance", "Drops", 400, 1, 32767, "Must be less than the chance");
 			appleDropFortuneDecrement = config.getInt("appleFortuneDecrement", "Drops", 2, 1, 32767, "Must be less than the chance");
 			appleDropMinChance = config.getInt("appleMinChance", "Drops", 5, 1, 32767, "Must be less than the chance");
 			seedDropFortuneDecrement = config.getInt("seedFortuneDecrement", "Drops", 2, 1, 32767, "Must be less than every seed chance. Effects all tree seed chances");
 			seedDropMinChance = config.getInt("seedFortuneDecrement", "Drops", 10, 1, 32767, "Must be less than every seed chance. Effects all tree seed chances");
+			removeAppleDrops = config.getBoolean("removeAppleDrops", "Drops", true, "Make apple trees the only natural source of apples besides loot");
 			config.addCustomCategoryComment("Generation", "Tweaks for tree generation");
 		
-		config.addCustomCategoryComment("Material Properties", "Tweaks for the properties of woods");
+		config.addCustomCategoryComment("Misc", "Misc Tweaks");
+		numStairs = config.getInt("NumStairsCrafting", "Misc", 4, 1, 8, "");
+		retrieveSaplingsMode = config.getInt("goldenAppleChance", "Misc", 1, 0, 2, "0: Can't get sapling items normally/n1:Shear or silktouch a sapling block/n 2:Place a seed in a crafting grid");
+		//can't get saplings
+				//shear or silktouch sapling block
+				//seed in crafting grid
+		
+		//dL = dL.concat("corn:kernels,0,18;");
+		//dL = dL.concat("exnihiloomnia:silkworm,0,16-18;");
+		
+		//System.out.println(dL.toString());
+		//config.addCustomCategoryComment("Custom Seeds", "");
+		//mega = config.get("Custom Seeds", "List", dL, " ").getString().split(";");
 		
 		config.save();
 	}

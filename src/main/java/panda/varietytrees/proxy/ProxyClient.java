@@ -12,12 +12,16 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class ProxyClient extends Proxy{
+public class ProxyClient extends CommonProxy{
 
 	
 	
-	public void init() {
+	public void init(FMLInitializationEvent e) {
+		super.init(e);
 		final ItemModelMesher itemModelMesher = Minecraft.getMinecraft().getRenderItem().getItemModelMesher();
 
 		for (final String itemName : Items.getItemRegistry().keySet()) {
@@ -32,5 +36,16 @@ public class ProxyClient extends Proxy{
 			itemModelMesher.register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(new ResourceLocation(VarietyTrees.MODID, blockName), "inventory"));
 		}
 	}
+	
+	@Override
+    public void preInit(FMLPreInitializationEvent e) {
+        super.preInit(e);
+    }
+
+    @Override
+    public void postInit(FMLPostInitializationEvent e) {
+        super.postInit(e);
+    }
+
 
 }

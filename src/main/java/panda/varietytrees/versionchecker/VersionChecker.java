@@ -25,6 +25,7 @@ public class VersionChecker implements Runnable
     /* (non-Javadoc)
      * @see java.lang.Runnable#run()
      */
+    //TODO add version checker config 
     @Override
     public void run() 
     {

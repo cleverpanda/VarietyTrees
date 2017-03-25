@@ -82,6 +82,7 @@ item.varietytrees.fir_seed.name=Fir Tree Seed
 item.varietytrees.ebony_seed.name=Ebony Tree Seeds
 item.varietytrees.yew_seed.name=Yew Tree Seeds
 item.varietytrees.willow_seed.name=Willow Tree Seeds
+itemGroup.varietytrees=Variety Trees
 
 
 \ No newline at end of file

@@ -45,7 +45,7 @@ public abstract class Recipes {
 
 			final String baseName = wood.getName() + "_";
 			final String oreDictName = wood.getCapitalizedName();
-			final Item door = panda.varietytrees.init.Items.getItemByName(baseName + "door_item");
+			final Item door = panda.varietytrees.init.Items.getItemByName(baseName + "door");
 			final Block planks = panda.varietytrees.init.Blocks.getBlockByName(baseName + "planks");
 			final Block log = panda.varietytrees.init.Blocks.getBlockByName(baseName + "log");
 			final Block trapdoor = panda.varietytrees.init.Blocks.getBlockByName(baseName + "trapdoor");	
@@ -83,6 +83,23 @@ public abstract class Recipes {
 		
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findItem("varietytrees", "apple_seed"),2), new ItemStack(Items.APPLE));
+	
+		if(ConfigurationHandler.retrieveSaplingsMode == 2){
+			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAPLING,1,0), new ItemStack(GameRegistry.findItem("varietytrees", "oak_seed")));
+			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAPLING,1,1), new ItemStack(GameRegistry.findItem("varietytrees", "spruce_seed")));
+			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAPLING,1,2), new ItemStack(GameRegistry.findItem("varietytrees", "birch_seed")));
+			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAPLING,1,3), new ItemStack(GameRegistry.findItem("varietytrees", "jungle_seed")));
+			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAPLING,1,4), new ItemStack(GameRegistry.findItem("varietytrees", "acacia_seed")));
+			GameRegistry.addShapelessRecipe(new ItemStack(Blocks.SAPLING,1,5), new ItemStack(GameRegistry.findItem("varietytrees", "dark_oak_seed")));
+			
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.apple_sapling), new ItemStack(panda.varietytrees.init.Items.apple_seed));
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.maple_sapling), new ItemStack(panda.varietytrees.init.Items.maple_seed));
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.pine_sapling), new ItemStack(panda.varietytrees.init.Items.pine_seed));
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.willow_sapling), new ItemStack(panda.varietytrees.init.Items.willow_seed));
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.yew_sapling), new ItemStack(panda.varietytrees.init.Items.yew_seed));
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.ebony_sapling), new ItemStack(panda.varietytrees.init.Items.ebony_seed));
+			GameRegistry.addShapelessRecipe(new ItemStack(panda.varietytrees.init.Blocks.fir_sapling), new ItemStack(panda.varietytrees.init.Items.fir_seed));
+		}
 	}
 
 	/**

@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import panda.varietytrees.VarietyTrees;
 import panda.varietytrees.blocks.BlockDoubleVarietySlab;
 import panda.varietytrees.blocks.BlockHalfVarietySlab;
 import panda.varietytrees.blocks.BlockVarietyDoor;
@@ -70,6 +71,8 @@ public abstract class Items {
 	public static Item dark_oak_seed;
 	public static Item jungle_seed;
 	public static Item acacia_seed;
+	
+	public static Item ash;
 	
 
 
@@ -137,7 +140,7 @@ public abstract class Items {
 			return;
 
 		panda.varietytrees.init.Blocks.init();
-
+		ash = registerItem(new ItemAsh(), "ash", null);
 
 		
 		apple_door = createDoor(Materials.apple, Blocks.apple_door);
@@ -203,7 +206,7 @@ public abstract class Items {
 		initDone = true;
 	}
 
-	private static Item registerItem(Item item, String name, WoodMaterial wood, CreativeTabs tab) {
+	private static Item registerItem(Item item, String name, WoodMaterial wood) {
 		String fullName = null;
 		if (wood != null)
 			fullName = wood.getName() + "_" + name;
@@ -216,8 +219,7 @@ public abstract class Items {
 		itemRegistry.put(fullName, item);
 		allItems.put(item, fullName);
 
-		if (tab != null)
-			item.setCreativeTab(tab);
+			item.setCreativeTab(VarietyTrees.TreeTab);
 
 		if (wood != null) {
 			itemsByWood.computeIfAbsent(wood, (WoodMaterial g) -> new ArrayList<>());
@@ -231,18 +233,18 @@ public abstract class Items {
 	}
 
 	private static Item createSlab(WoodMaterial wood, Block block, BlockSlab slab, BlockSlab doubleslab) {
-		return registerItem(new ItemVarietySlab(wood, block, slab, doubleslab), "slab", wood, CreativeTabs.BUILDING_BLOCKS);
+		return registerItem(new ItemVarietySlab(wood, block, slab, doubleslab), "slab", wood);
 	}
 
 	private static Item createDoor(WoodMaterial metal, BlockDoor door) {
 		final Item item = new ItemVarietyDoor(door, metal);
-		registerItem(item, "door", metal, CreativeTabs.REDSTONE);
+		registerItem(item, "door", metal);
 		doorMap.put(door, item);
 		return item;
 	}
 	
 	private static Item createSeed(WoodMaterial wood) {
-		return registerItem(new ItemVarietySeed(wood), "seed", wood, CreativeTabs.MATERIALS);
+		return registerItem(new ItemVarietySeed(wood), "seed", wood);
 	}
 
 	public static Map<String, Item> getItemRegistry() {

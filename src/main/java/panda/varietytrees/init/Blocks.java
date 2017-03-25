@@ -19,6 +19,8 @@ import java.util.Map;
 
 
 
+
+import panda.varietytrees.VarietyTrees;
 import panda.varietytrees.blocks.BlockDoubleVarietySlab;
 import panda.varietytrees.blocks.BlockHalfVarietySlab;
 import panda.varietytrees.blocks.BlockVarietyDoor;
@@ -42,15 +44,11 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-/**
- * This class initializes all blocks in Base Metals and provides some utility
- * methods for looking up blocks.
- *
- * @author DrCyano
- *
- */
 public abstract class Blocks {
 
+	
+
+	public static Block specialfire;
 	public static Block apple_log;
 	public static Block apple_planks;
 	public static BlockDoor apple_door;
@@ -175,6 +173,7 @@ public abstract class Blocks {
 			return;
 
 		panda.varietytrees.init.Materials.init();
+		specialfire = addBlock(new SpecialFire(), "fire", null);
 		WoodMaterial mat = Materials.apple;
 		apple_planks = createPlank(mat);
 		apple_log = createLog(mat);
@@ -301,15 +300,8 @@ public abstract class Blocks {
 			GameRegistry.register(itemBlock);
 		}
 
-		if (block instanceof BlockVarietyPlanks || block instanceof BlockVarietyLog|| block instanceof BlockHalfVarietySlab){
-			block.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
-		}else
-		if (block instanceof BlockVarietySapling || block instanceof BlockVarietyLeaves|| block instanceof BlockVarietyFence){
-			block.setCreativeTab(CreativeTabs.DECORATIONS);
-		}else
-		if (block instanceof BlockVarietyFenceGate ){
-			block.setCreativeTab(CreativeTabs.REDSTONE);
-		}
+		block.setCreativeTab(VarietyTrees.TreeTab);
+
 			
 
 		// TODO: Make this support multiple oredicts

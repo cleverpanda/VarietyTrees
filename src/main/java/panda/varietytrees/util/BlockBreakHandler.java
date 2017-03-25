@@ -11,6 +11,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemShears;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -18,7 +19,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockBreakHandler {
 	EntityItem entityitem = null;
-
+	//net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemSmeltedEvent
+	
 	@SubscribeEvent
 	public void onDrops(BlockEvent.HarvestDropsEvent event) {
 		Block theblock = event.getState().getBlock();
@@ -27,19 +29,27 @@ public class BlockBreakHandler {
 		if (theblock instanceof BlockSapling || theblock instanceof BlockLeaves)
 		{
 			for(int i = 0; i<event.getDrops().size(); i++){
-				if(Block.getBlockFromItem(event.getDrops().get(i).getItem()) instanceof BlockBush){
-					event.getDrops().remove(i);
+				if(Block.getBlockFromItem(event.getDrops().get(i).getItem()) instanceof BlockBush && ((theblock ==Blocks.LEAVES)||(theblock ==Blocks.LEAVES2)) ){
+						event.getDrops().remove(i);
+				}
+				
+				if (theblock instanceof BlockSapling)
+				{
+					if((!(event.getHarvester().getHeldItemMainhand().getItem() instanceof ItemShears) && ConfigurationHandler.retrieveSaplingsMode == 1) || ConfigurationHandler.retrieveSaplingsMode ==0){
+						if(Block.getBlockFromItem(event.getDrops().get(i).getItem()) instanceof BlockBush){
+							event.getDrops().remove(i);
+						}
+						event.getDrops().add(new ItemStack(Items.STICK,event.getWorld().rand.nextBoolean()? 2:1));
+					}	
 				}
 			}
-			if (theblock instanceof BlockSapling)
-			{
-				event.getDrops().add(new ItemStack(Items.STICK,event.getWorld().rand.nextBoolean()? 2:1));
-			}
 			
+			
+			//TODO compact
 			if(theblock == Blocks.LEAVES){	
 				int s = event.getDrops().size();
 				for(int i=0;i<s;i++){
-					if(event.getDrops().get(i).getItem() == Items.APPLE){
+					if(event.getDrops().get(i).getItem() == Items.APPLE && !ConfigurationHandler.removeAppleDrops){
 						event.getDrops().remove(i);
 					};
 				}
@@ -72,7 +82,7 @@ public class BlockBreakHandler {
 					}
 				}
 				
-			}
+			}else
 			if(theblock == Blocks.LEAVES2){
 				int s = event.getDrops().size();
 				for(int i=0;i<s;i++){

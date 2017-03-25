@@ -256,4 +256,5 @@ public class BlockVarietySapling extends BlockBush implements IOreDictionaryEntr
 		public String getOreDictionaryName() {
 			return "sapling" + this.wood.getCapitalizedName();
 		}
+	   
 }
